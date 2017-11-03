@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
 #include "Usuario.h"
+#include "minesweeper.h"
 #include <new>
 #include <sstream>
 #include <vector>
 #include <stdlib.h>
+
+
 
 using namespace std;
 

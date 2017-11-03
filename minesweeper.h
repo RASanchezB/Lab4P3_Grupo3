@@ -1,7 +1,7 @@
 #ifndef minesweeper_H
 #define minesweeper_H
-
 #include <iostream>
+
 using namespace std;
 
 class minesweeper{
@@ -19,13 +19,20 @@ class minesweeper{
 		int getMinas();
 		char** getBuscar();
 		int** getMinaspuestas();
+		
+		char** crearMatriz(int);
+		int** crearMatrizI(int);
+		void llenarMI(int**, int, int);
+		void sustituirM(int**,char**,int);
+		void borrar(int**,char**,int);
 
-		void setSize();
-		void setMinas();
-		void setBuscar();
-		void setMinaspuestas();
+		void setSize(int);
+		void setMinas(int);
+		void setBuscar(char**);
+		void setMinaspuestas(int**);
 
 		
+		
 		~minesweeper();
-}
+};
 #endif

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "minesweeper.h"
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 minesweeper::minesweeper(){
@@ -7,13 +9,14 @@ minesweeper::minesweeper(){
 	this->minas = 0;
 	this->buscar;
 	this->minaspuestas;
+	srand(time(NULL));
 }
 
-minesweeper::minesweeper(int pSize,int minas){
+minesweeper::minesweeper(int pSize,int pMinas){
 	size = pSize;
-	minas = ;
+	minas = pMinas;
 	buscar = crearMatriz(size);
-	minaspuestas = crearMatrizI();
+	minaspuestas = crearMatrizI(size);
 	
 }
 int minesweeper::getSize(){
@@ -43,18 +46,42 @@ void minesweeper::setMinaspuestas(int** pMinaspuestas){
 minesweeper::~minesweeper(){
 }
 
-char** crearMatriz(int size){
+char** minesweeper::crearMatriz(int size){
 	char** matriz = new char*[size];
 	for(int i = 0; i < size; i++){
 		matriz[i] = new char[size];
 	}
 	return matriz;
 }
-int** crearMatrizI(int size){
-	int** matriz = new char*[size];
+int** minesweeper::crearMatrizI(int size){
+	int** matriz = new int*[size];
 	for(int i = 0; i < size; i++){
-		matriz[i] = new char[size];
+		matriz[i] = new int[size];
 	}
 	return matriz;
 }
+void minesweeper::llenarMI(int** minaspuestas, int size, int minas){
+	for(int i = 0; i < size; i++){
+		for(int j = 0; j < size; j++){
+			minaspuestas[i][j] = 0;
+		}
+	}
+	for(int i = 0; i < minas; i++){
+		int row = rand()%size;
+		int column = rand()%size;
+		minaspuestas[i][j] = -1;
+	}
+}
+void minesweeper::sustituirM(int** minaspuestas, char** buscar, int size){
 
+}
+void minesweeper::borrar(int** minaspuestas, char** buscar, int size){
+	for(int i = 0; i < size; i++){
+		delete[] buscar[i];
+		buscar[i] = NULL;
+		delete[] minaspuestas[i];
+		minaspuestas[i] = NULL;
+	}
+	delete[] buscar;
+	delete[] minaspuestas;
+}
