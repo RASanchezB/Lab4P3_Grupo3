@@ -1,13 +1,19 @@
 #include <iostream>
 #include <string>
 #include "Usuario.h"
-#include <curses.h>
+#include <new>
+#include <sstream>
+#include <vector>
+#include <stdlib.h>
 
 using namespace std;
 
 
 
 int main(){
+
+	std::vector<Usuario>tabla;
+
 	int opcion = 0;
 	while(opcion != 4){
 		cout<<"-----Menu----"<<endl
@@ -28,6 +34,24 @@ int main(){
 			break;
 			case 2:{
 
+			}
+			break;
+
+			case 3:{
+				string nombre, usuario, clave;
+				
+				cout<<"Ingrese su Nombre: "<<endl;
+				cin>>nombre;
+				
+				cout<<"Ingrese su Usuario: "<<endl;
+				cin>>usuario;
+			
+				cout<<"Ingrese su Clave: "<<endl;
+				cin>>clave;
+
+				Usuario u = Usuario(nombre, usuario, clave, 0);
+				tabla.push_back (u);			
+				
 			}
 			break;
 			default:{}

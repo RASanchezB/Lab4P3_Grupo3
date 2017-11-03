@@ -55,5 +55,4 @@ void Usuario::setPuntuacion(int pPuntuacion){
 }
 
 Usuario::~Usuario(){
-	cout<<"."<<endl;
 }
