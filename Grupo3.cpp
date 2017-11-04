@@ -52,7 +52,13 @@ int main(){
 				if(entra){
 					cout<<"Hola"<<endl;
 					//imprimir matriz
-					
+					cout<<"Ingrese el tamaño"<<endl;
+					int size;
+					cin>>size;
+					cout<<"Ingrese la cantidad de minas"<<endl;
+					int minas;
+					cin>>minas;
+					minesweeper* ms = new minesweeper(size,minas);
 					
 					
 				}else {
