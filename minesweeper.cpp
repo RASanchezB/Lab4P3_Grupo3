@@ -16,7 +16,7 @@ minesweeper::minesweeper(int pSize,int pMinas){
 	size = pSize;
 	minas = pMinas;
 	buscar = crearMatriz(size);
-	minaspuestas = crearMatrizI(size);
+	minaspuestas = crearMatrizI(size,minas);
 	
 }
 int minesweeper::getSize(){
@@ -53,7 +53,7 @@ char** minesweeper::crearMatriz(int size){
 	}
 	return matriz;
 }
-int** minesweeper::crearMatrizI(int size){
+int** minesweeper::crearMatrizI(int size, int minas){
 	int** matriz = new int*[size];
 	for(int i = 0; i < size; i++){
 		matriz[i] = new int[size];
@@ -69,7 +69,7 @@ void minesweeper::llenarMI(int** minaspuestas, int size, int minas){
 	for(int i = 0; i < minas; i++){
 		int row = rand()%size;
 		int column = rand()%size;
-		minaspuestas[i][j] = -1;
+		minaspuestas[row][column] = -1;
 	}
 }
 void minesweeper::sustituirM(int** minaspuestas, char** buscar, int size){

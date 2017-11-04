@@ -21,7 +21,7 @@ class minesweeper{
 		int** getMinaspuestas();
 		
 		char** crearMatriz(int);
-		int** crearMatrizI(int);
+		int** crearMatrizI(int,int);
 		void llenarMI(int**, int, int);
 		void sustituirM(int**,char**,int);
 		void borrar(int**,char**,int);

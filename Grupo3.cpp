@@ -51,6 +51,10 @@ int main(){
 
 				if(entra){
 					cout<<"Hola"<<endl;
+					//imprimir matriz
+					
+					
+					
 				}else {
 					cout<<"Usuario o clave incorrecta!"<<endl;
 				}
