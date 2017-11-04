@@ -22,7 +22,7 @@ int main(){
 		cout<<"-----Menu----"<<endl
 		    <<"1) MinseSweeper"<<endl
 		    <<"2) Highscores"<<endl
-		    <<"3) Crear usuario"<<endl
+		    <<"3) Crear, Modificar o Eliminar usuario"<<endl
 		    <<"4) Salir"<<endl;
 		cin>>opcion;
 		switch(opcion){
@@ -42,18 +42,57 @@ int main(){
 
 			case 3:{
 				string nombre, usuario, clave;
+				int op2;
+				do{
 				
-				cout<<"Ingrese su Nombre: "<<endl;
-				cin>>nombre;
-				
-				cout<<"Ingrese su Usuario: "<<endl;
-				cin>>usuario;
-			
-				cout<<"Ingrese su Clave: "<<endl;
-				cin>>clave;
+					cout<<"Que desea hacer?"<<endl
+					<<"1. Crear"<<endl
+					<<"2. Listar"<<endl
+					<<"3. Eliminar"<<endl
+					<<"4. Salir"<<endl;
+					cout<<endl;
+					cin>>op2;
 
-				Usuario u = Usuario(nombre, usuario, clave, 0);
-				tabla.push_back (u);			
+					switch(op2){
+
+						case 1:{
+							cout<<"Ingrese su Nombre: "<<endl;
+			                                cin>>nombre;
+
+                        			        cout<<"Ingrese su Usuario: "<<endl;
+                        			        cin>>usuario;
+	
+        			                        cout<<"Ingrese su Clave: "<<endl;
+                                			cin>>clave;
+			
+                        			        Usuario u = Usuario(nombre, usuario, clave, 0);
+                                			tabla.push_back (u);
+
+						}break;
+
+						case 2:{
+							for(int i = 0; i < tabla.size(); i++){
+								cout<<"Usuario: "<<tabla.at(i).getUsuario()<<endl
+								<<"Puntaje: "<<tabla.at(i).getPuntuacion()<<endl;
+								cout<<endl;
+							}
+						}break;
+
+						case 3:{
+							int pos;
+							for(int i = 0; i < tabla.size(); i++){
+                                                                cout<<"Pos("<<i<<") "<<"Usuario: "<<tabla.at(i).getUsuario()<<endl;
+								cout<<endl;
+                                                        }
+							cout<<"Ingrese la posicion del usuario que desea eliminar:"<<endl;
+							cin>>pos;
+							tabla.erase(tabla.begin() + pos);
+						}break;
+
+					}
+				
+
+				}while(op2!=4);			
 				
 			}
 			break;
