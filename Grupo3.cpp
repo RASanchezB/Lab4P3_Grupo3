@@ -29,10 +29,32 @@ int main(){
 			case 1:{
 				string usuario = "";
 				string clave = "";
+
+				bool entra = false;
+
 				cout<<"Ingrese su username"<<endl;
 				cin>>usuario;
 				cout<<"Ingrese su contraseña"<<endl;
 				cin>>clave;
+				
+				for(int i = 0; i < tabla.size(); i++){
+					if(usuario==tabla.at(i).getUsuario()){
+						if(clave==tabla.at(i).getClave()){
+							entra = true;							
+						}
+					}
+
+					if(entra){
+						i = tabla.size();
+					}
+				}
+
+				if(entra){
+					cout<<"Hola"<<endl;
+				}else {
+					cout<<"Usuario o clave incorrecta!"<<endl;
+				}
+
 			}
 			break;
 			case 2:{
